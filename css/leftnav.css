@@ -1,0 +1,185 @@
+body {
+  background-color: #f0f5f6;
+  padding-left: 260px;
+}
+@media screen and (min-width: 900px) and (max-width: 1300px) {
+  body {
+    padding-left: 20%;
+  }
+}
+@media screen and (max-width: 900px) {
+  body {
+    padding-left: 70px;
+  }
+}
+.cs-nav-left {
+  width: 260px;
+  height: 100%;
+  background-color: #1f345c;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  color: white;
+  font-size: 16px;
+  z-index: 10;
+}
+.cs-nav-left .panel {
+  margin: 0;
+  box-shadow: none;
+  background-color: #1f345c;
+  border: none;
+  border-radius: 0;
+}
+.cs-nav-left .cs-nav-left-top {
+  width: 100%;
+  height: 94px;
+  background: #1f345c url("../images/logo.png") 14px -38px no-repeat;
+}
+.cs-nav-left .cs-nav-left-cen {
+  width: 100%;
+}
+.cs-nav-left .cs-nav-left-cen > i {
+  display: none;
+}
+.cs-nav-left .cs-nav-left-cen .collapsed .icon.iconfont-down {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  /* IE 9 */
+  -moz-transform: rotate(180deg);
+  /* Firefox */
+  -webkit-transform: rotate(180deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(180deg);
+}
+.cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-t {
+  padding-left: 20px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  line-height: 40px;
+  font-size: 14px;
+  position: relative;
+}
+.cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-t i {
+  color: white;
+  margin-right: 13px;
+  font-size: 12px;
+}
+.cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-t .iconfont-down {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  margin-left: 100px;
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -moz-transform: rotate(0deg);
+  /* Firefox */
+  -webkit-transform: rotate(0deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(0deg);
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-b {
+  width: 100%;
+  line-height: 30px;
+}
+.cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-b li {
+  padding-left: 50px;
+  font-size: 14px;
+  height: 35px;
+  background-color: #192a49;
+  cursor: pointer;
+  border-right: 6px solid #40a8e8;
+}
+@media screen and (min-width: 900px) and (max-width: 1300px) {
+  .cs-nav-left {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cs-nav-left {
+    width: 70px;
+    height: 100%;
+    background-color: #1f345c;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: white;
+    font-size: 16px;
+  }
+  .cs-nav-left .panel {
+    margin: 0;
+    box-shadow: none;
+    background-color: #1f345c;
+    border: none;
+    border-radius: 0;
+  }
+  .cs-nav-left .cs-nav-left-top {
+    width: 100%;
+    height: 94px;
+    background: #1f345c url("../images/slogo.png") -13px 0px no-repeat;
+  }
+  .cs-nav-left .cs-nav-left-cen {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .cs-nav-left .cs-nav-left-cen i {
+    display: inline-block;
+    font-size: 20px;
+    color: #40a8e8;
+  }
+  .cs-nav-left .cs-nav-left-cen .collapsed .icon.iconfont-down {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    /* IE 9 */
+    -moz-transform: rotate(180deg);
+    /* Firefox */
+    -webkit-transform: rotate(180deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(180deg);
+  }
+  .cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-t {
+    display: none;
+    padding-left: 20px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    line-height: 40px;
+    font-size: 14px;
+    position: relative;
+  }
+  .cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-t i {
+    color: white;
+    margin-right: 13px;
+    font-size: 12px;
+  }
+  .cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-b {
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    width: 0px;
+    line-height: 30px;
+    display: block;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .cs-nav-left .cs-nav-left-cen .cs-nav-left-cen-b li {
+    padding-left: 0px;
+    font-size: 14px;
+    height: 35px;
+    background-color: #192a49;
+    cursor: pointer;
+    border-right: none;
+  }
+  .cs-nav-left .cs-nav-left-cen:hover .cs-nav-left-cen-b {
+    width: 130px;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ynanzb",
+  "authors": [
+    "xh <794621729@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "amazeui": "^2.7.2",
+    "jquery": "1.12.4",
+    "webuploader": "*",
+    "fex-webuploader": "https://github.com/fex-team/webuploader.git#^0.1.5",
+    "cropper": "^3.0.0",
+    "jquery-validation": "^1.17.0",
+    "bootstrap-table": "^1.11.1",
+    "bootstrap": "^3.3.7"
+  }
+}

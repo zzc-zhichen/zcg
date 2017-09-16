@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>编辑商品</title>
+	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/amaze/amazeui.min.css">
+	<link rel="stylesheet" href="../css/amaze/font-awesome.css">
+	<link rel="stylesheet" href="../css/webuploader/edit-webuploader.css">
+	<link rel="stylesheet" href="../css/cropper/cropper.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<link rel="stylesheet" href="../css/leftnav.css">
+	<link rel="stylesheet" href="../css/product.css">
+	<link rel="stylesheet" href="../css/image.css">
+	<link rel="stylesheet" href="../css/edit-image.css">
+</head>
+
+<body>
+	<nav>
+    <div class="nav">
+        商品管理<i class="icon iconfont-cha"></i>
+    </div>
+    <div class="admin">
+        <i class="icon iconfont-people"></i>
+        <span class="username">张三</span>
+        <i class="icon iconfont-shezhi shezhi"></i>
+        <div class="edit">
+            <ul class="edit-list">
+                <li>关于中藏宫</li>
+                <li>修改密码</li>
+                <li>退出</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+	<div class="cs-nav-left" id="accordion">
+		<div class="cs-nav-left-top"></div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-stroe"></i>
+			<p id="stroeUrl" class="cs-nav-left-cen-t collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseOne"
+			   aria-expanded="false" aria-controls="collapseOne">
+				<i class="icon iconfont-menu"></i> 仓库管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul id="collapseOne" class="cs-nav-left-cen-b collapse" aria-labelledby="headingOne">
+				<li><a href="/store/addstore.html" style="color:#FFF;">添加仓库</a></li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-product"></i>
+			<p id="productUrl" class="cs-nav-left-cen-t collapsed" id="headingTwo" data-toggle="collapse"
+			   data-parent="#accordion"
+			   href="#collapseTwo"
+			   aria-expanded="false" aria-controls="collapseTwo">
+				<i class="icon iconfont-menu"></i> 商品管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseTwo" aria-labelledby="headingTwo">
+				<li><a href="/product/add-product.html" style="color:#FFF;">添加商品</a></li>
+				<li>添加套装</li>
+				<li>添加周期</li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-dingdan"></i>
+			<p class="cs-nav-left-cen-t collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseThree"
+			   aria-expanded="false" aria-controls="collapseThree">
+				<i class="icon iconfont-menu"></i> 订单管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseThree" aria-labelledby="headingThree">
+				<li>代售订单</li>
+				<li>售中订单</li>
+				<li>已售订单</li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-xitong"></i>
+			<p class="cs-nav-left-cen-t collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseFour"
+			   aria-expanded="false" aria-controls="collapseFour">
+				<i class="icon iconfont-menu"></i> 系统管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseFour" aria-labelledby="headingFour">
+				<li>用户管理</li>
+				<li>角色管理</li>
+			</ul>
+		</div>
+	</div>
+
+<div class="content">
+	<div class="form-wrap">
+		<div class="title">编辑商品信息</div>
+		<form class="form-horizontal" id="myForm" method="post">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品名称</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" name="name" class="form-control" placeholder="请输入商品名称">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品类型</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="type">
+						<option value="100">翡翠</option>
+						<option value="101">玉石</option>
+						<option value="102">陶瓷</option>
+						<option value="103">国画</option>
+						<option value="104">玻璃</option>
+						<option value="105">和田玉</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">所属仓</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="r_id">
+						<script type="text/html" id="store">
+							{{ each listRepository v i}}
+							<option value="{{ v.id }}">{{ v.name }}</option>
+							{{ /each }}
+						</script>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品原价</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="orig_price" placeholder="请输入商品销售价格">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">颜色</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="color">
+						<option value="红色">红色</option>
+						<option value="粉红">粉红</option>
+						<option value="翠绿">翠绿</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">尺寸</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="size" placeholder="请输入商品尺寸">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">库存</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="stock" placeholder="请输入商品库存">
+				</div>
+			</div>
+			<!-- 图片 -->
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品图片</label>
+				<div class="col-sm-6 col-lg-6">
+					<!-- 图片内容区域 -->
+					<div class="img-uploader clearfix">
+						<div id="uploader" class="wu-example clearfix">
+							<div class="btns clearfix">
+								<div id="filePicker1" class="btns-uploader">
+								</div>
+								<div id="filePicker2" class="btns-uploader">
+								</div>
+								<div id="filePicker3" class="btns-uploader">
+								</div>
+								<div id="filePicker4" class="btns-uploader">
+								</div>
+								<div class="uploadBtn">上传</div>
+							</div>
+							<ul class="filelist">
+								<!--<li data-sort="" draggable="true" id=""><p class="title"></p>-->
+								<!--<p class="imgWrap"><img draggable="true" src="http://172.168.1.61:8080/ProductMaven/">-->
+								<!--</p>-->
+								<!--<p class="progress"><span></span></p>-->
+								<!--<div class="file-panel" style="height: 0px;"><span class="cancel">删除</span>-->
+								<!--</div>-->
+								<!--</li>-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group" style="padding-bottom:22px;margin-top: 70px;">
+				<div class="col-sm-offset-2 col-sm-6 col-lg-6">
+					<input type="reset" class="btn btn-default pull-right zcg-btn" id="reset" value="重置">
+					<input type="submit" class="btn btn-default pull-right zcg-btn" id="save" value="保存">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- 图片编辑模态框 -->
+<div class="am-popup zn-photodiy-popup" tabindex="-1" id="zn-photodiy-edit">
+	<div class="am-popup-inner">
+		<div class="am-popup-hd">
+			<h4 class="am-popup-title">照片编辑</h4>
+			<span data-am-modal-close class="am-close" data-am-modal-cancel>&times;</span>
+		</div>
+		<div class="am-popup-bd">
+			<div class="am-g">
+				<div class="am-u-sm-12 am-u-md-7 am-u-lg-7 ">
+					<div class="img-container">
+						<img src="" id="image_cropper" alt="Picture">
+					</div>
+					<button class="am-btn am-btn-default zn-photodiy-editma" data-method="reset" type="button" title="Reset">
+						<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;reset&quot;)">还原</span>
+					</button>
+				</div>
+				<div class="am-u-sm-12 am-u-md-5 am-u-lg-5">
+					
+					<p>
+						<button class="zn-photodiy-editbtn" data-method="rotate" data-option="-90" type="button">
+<span class="glyphicon glyphicon-repeat">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="rotate" data-option="90" type="button"
+						        title="Rotate Right">
+<span class="glyphicon glyphicon-repeat">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="zoom" data-option="-0.1" type="button"
+						        title="Zoom Out">
+<span class="glyphicon glyphicon-zoom-out" data-toggle="tooltip"
+      title="$().cropper(&quot;zoom&quot;, -0.1)">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="zoom" data-option="0.1" type="button"
+						        title="Zoom In">
+<span class="glyphicon glyphicon-zoom-in" data-toggle="tooltip"
+      title="$().cropper(&quot;zoom&quot;, 0.1)">
+ </span>
+							</span>
+						</button>
+					</p>
+					<p class="text"><span>左旋转</span><span>右旋转</span><span>缩小</span><span>放大</span></p>
+					<p class="am-pagination-right">
+						<button type="button" class="am-btn am-btn-warning am-radius" data-am-modal-close data-am-modal-cancel
+						        id="cancel">取消
+						</button>
+						<button type="button" class="am-btn am-btn-danger am-radius" data-am-modal-close data-am-modal-confirm
+						        id="confirm">确定
+						</button>
+					</p>
+				</div>
+			</div>
+			<div class="zn-photodiy-edittext"><span class="glyphicon glyphicon-warning-sign"></span>请点击照片拖动照片选择冲印范围，虚线框外的图像将被裁减删除
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+	<div class="am-modal-dialog">
+		<div class="am-modal-hd" style="font-size: 16px; padding-bottom: 10px;">系统提示</div>
+		<div class="am-modal-bd" style="font-size: 20px;">
+			商品更新成功!
+		</div>
+		<div class="am-modal-footer">
+			<span class="am-modal-btn" id="backProduct">确定</span>
+		</div>
+	</div>
+</div>
+
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+<script src="../lib/amaze/amazeui.min.js"></script>
+<script src="../lib/amaze/amazeui.dialog.min.js"></script>
+<script src="../lib/webuploader/webuploader.min.js"></script>
+<script src="../lib/cropper/cropper.min.js"></script>
+<script src="../lib/jquery.validate.min.js"></script>
+<script src="../lib/template-web.js"></script>
+<script src="../js/common.js"></script>
+
+<script>
+	var id = getUrlParam('product_id');
+	var editName = $("[name='name']");
+	var Type = $("[name='type']");
+	var r_id = $("[name='r_id']");
+	var orig_price = $("[name='orig_price']");
+	var color = $("[name='color']");
+	var size = $("[name='size']");
+	var stock = $("[name='stock']");
+	var productImg;
+	var $imgList = $('.filelist');
+	var delSort;
+	var delSortArr = [];
+	var flag = false;
+	$('#myForm').validate({
+		rules: {
+			name: {
+				required: true,
+				maxlength: 50
+			},
+			subtitle: {
+				maxlength: 50
+			},
+			orig_price: {
+				required: true,
+				number: true
+			},
+			stock: {
+				required: true,
+				digits: true
+			}
+		},
+		messages: {
+			name: {
+				required: "*必须输入商品名称",
+				maxlength: "*最大输入50字符"
+			},
+			subtitle: {
+				maxlength: "*最大输入50字符"
+			},
+			orig_price: {
+				required: "*必须输入商品原价",
+				number: "*请输入数字",
+			},
+			stock: {
+				required: "*必须输入库存数量",
+				digits: "*请输入整数"
+			}
+		}
+	})
+	
+	// 仓库
+	$.ajax({
+		url: storeUrl,
+		type: 'get',
+		dataType: 'json',
+		success: function (res) {
+			var html = template("store", res.result);
+			$("[name='r_id']").html(html);
+		},
+		error: function (err) {
+			console.log(err.message);
+		}
+	})
+	// 图片
+	$.ajax({
+		url: 'http://172.168.1.61:8080/ProductMaven/pic/get_images_by_id',
+		type: 'get',
+		data: {
+			pro_id: id
+		},
+		dataType: 'json',
+		success: function (res) {
+			console.log(res);
+			productImg = res.result
+			var liList = [];
+			if (productImg.length !== 0) {
+				for (var i = productImg.length - 1; i >= 0; i--) {
+					var imgUlr = 'http://172.168.1.61:8080/ProductMaven/' + productImg[i].image_url
+					var $li = $('<li  data-sort=' + productImg[i].pic_place + ' draggable="true" >' +
+						'<p class="title"></p>' +
+						'<p class="imgWrap">' +
+						'<img draggable="true" src=' + imgUlr + '>' +
+						'</p>' +
+						'<p class="progress"><span></span></p>' +
+						'<div class="file-panel">' +
+						'<span class="cancel">删除</span>' +
+						'</div>' +
+						'</li>');
+					
+					liList.push($li[0])
+				}
+				for (var j = 0; j < liList.length - 1; j++) {
+					for (var k = 0; k < liList.length - 1 - j; k++) {
+						if (liList[k].dataset.sort > liList[k + 1].dataset.sort) {
+							var temp = liList[k];
+							liList[k] = liList[k + 1];
+							liList[k + 1] = temp;
+						}
+					}
+				}
+				var listHtml = '';
+				for (var l = 0; l < liList.length; l++) {
+					listHtml += liList[l].outerHTML
+				}
+				$imgList.html(listHtml)
+				// 鼠标进入设置btns元素的高度 显示小垃圾桶删除
+				$imgList.find('li').on('mouseenter', function () {
+					$(this).find('.file-panel').stop().animate({height: 30});
+				});
+				// 鼠标离开设置btns元素的高度 显示小垃圾桶删除
+				$imgList.find('li').on('mouseleave', function () {
+					$(this).find('.file-panel').stop().animate({height: 0})
+				});
+				var $del = $imgList.find('li').find('.file-panel');
+				$del.on('click', 'span', function () {
+					delSort = $(this).closest('li').attr('data-sort');
+					delSortArr.push(delSort)
+					if (delSortArr.length === 4) {
+						flag = true;
+					}
+					$(this).closest('li').off('mouseenter mouseleave');
+					$(this).closest('li').remove()
+				})
+			} else {
+				return;
+			}
+			
+		},
+		error: function (err) {
+			console.log(err.message);
+		}
+	})
+	// 商品信息
+	$.ajax({
+		url: 'http://172.168.1.61:8080/ProductMaven/product/get_product_by_id',
+		type: 'get',
+		data: {
+			product_id: id
+		},
+		dataType: 'json',
+		success: function (res) {
+			if (res.status === '200') {
+				var product = res.result[0];
+				editName.val(product.name);
+				Type.find("option[value=" + product.type + "]").prop("selected", true);
+				r_id.find("option[value=" + product.r_id + "]").prop("selected", true);
+				orig_price.val(product.orig_price);
+				size.val(product.size);
+				stock.val(product.stock);
+			}
+		},
+		error: function (err) {
+			console.log(err.message);
+		}
+	})
+	
+	
+	$('#save').on('click', function (e) {
+		e.preventDefault();
+		var r = $('#myForm').valid();
+		if (r) {
+			var form = document.getElementById("myForm");
+			var formData = new FormData(form);
+			var name = formData.get('name');
+			var subtitle = formData.get('subtitle');
+			var type = formData.get('type');
+			var r_id = formData.get('r_id');
+			var orig_price = formData.get('orig_price');
+			var size = formData.get('size');
+			var stock = formData.get('stock');
+			var color = formData.get('color');
+			var data = [{
+				id: id,
+				name: name,
+				subtitle: subtitle,
+				type: type,
+				r_id: r_id,
+				orig_price: orig_price - 0,
+				color: color,
+				size: size,
+				stock: stock,
+				sale_type: 100,
+			}];
+			$.ajax({
+				url: 'http://172.168.1.61:8080/ProductMaven/product/update_proudct',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					product_param: JSON.stringify(data)
+				},
+				success: function (res) {
+					if (res.status === '200') {
+						$('#my-alert').modal('open');
+						$('#backProduct').on('click', function () {
+							window.location.href = '/product/product.html';
+						})
+					}
+				},
+				error: function (err) {
+					console.log(err)
+				}
+			})
+		} else {
+			return;
+		}
+	})
+	
+	
+	// webuploader配置信息
+	window.webuploader = {
+		config: {
+			thumbWidth: 122, //缩略图宽度，可省略，默认为110
+			thumbHeight: 122, //缩略图高度，可省略，默认为110
+			wrapId: 'uploader' //必填
+		}
+	}
+	// 图片配置信息
+	var config = {
+		// 图片上传限制
+		fileNumLimit: 4,
+		// 单张图片的限制 10MB
+		fileSingleSizeLimit: 10 * 1024 * 1024,
+		
+		// TODO
+		canvas: {
+			"sWidth": 400,
+			"sHeight": 413,
+			"isMerge": true,
+			"merge": {
+				"tWidth": 900,
+				"tHeight": 1300,
+				"offsets": [{
+					"x": 0,
+					"y": 0
+				},
+					{
+						"x": 400,
+						"y": 0
+					},
+					{
+						"x": 0,
+						"y": 420
+					},
+					{
+						"x": 400,
+						"y": 420
+					},
+					{
+						"x": 0,
+						"y": 840
+					},
+					{
+						"x": 400,
+						"y": 840
+					}
+				]
+			}
+		},
+		prodId: 8
+	};
+
+
+</script>
+<script src="../lib/edit-webuploader.js"></script>
+</body>
+
+</html>

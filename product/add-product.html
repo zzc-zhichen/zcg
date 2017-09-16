@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>添加商品</title>
+	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<link rel="stylesheet" href="../css/leftnav.css">
+	<link rel="stylesheet" href="../css/product.css">
+</head>
+
+<body>
+<nav>
+	<div class="nav">
+		<!-- 商品管理<i class="icon iconfont-cha"></i> -->
+	</div>
+	<div class="admin">
+		<i class="icon iconfont-people"></i>
+		<span class="username">张三</span>
+		<i class="icon iconfont-shezhi shezhi"></i>
+		<div class="edit">
+			<ul class="edit-list">
+				<li>关于中藏宫</li>
+				<li>修改密码</li>
+				<li>退出</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="cs-nav-left" id="accordion">
+	<div class="cs-nav-left-top"></div>
+	<div class="cs-nav-left-cen panel">
+		<i class="icon iconfont-stroe"></i>
+		<p id="stroeUrl" class="cs-nav-left-cen-t collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion"
+		   href="#collapseOne"
+		   aria-expanded="false" aria-controls="collapseOne">
+			<i class="icon iconfont-menu"></i> 仓库管理
+			<i class="icon iconfont-down"></i>
+		</p>
+		<ul id="collapseOne" class="cs-nav-left-cen-b collapse" aria-labelledby="headingOne">
+			<li><a href="/store/addstore.html" style="color:#FFF;">添加仓库</a></li>
+		</ul>
+	</div>
+	<div class="cs-nav-left-cen panel">
+		<i class="icon iconfont-product"></i>
+		<p id="productUrl" class="cs-nav-left-cen-t collapsed" id="headingTwo" data-toggle="collapse"
+		   data-parent="#accordion"
+		   href="#collapseTwo"
+		   aria-expanded="false" aria-controls="collapseTwo">
+			<i class="icon iconfont-menu"></i> 商品管理
+			<i class="icon iconfont-down"></i>
+		</p>
+		<ul class="cs-nav-left-cen-b collapse" id="collapseTwo" aria-labelledby="headingTwo">
+			<li><a href="/product/add-product.html" style="color:#FFF;">添加商品</a></li>
+			<li>添加套装</li>
+			<li>添加周期</li>
+		</ul>
+	</div>
+	<div class="cs-nav-left-cen panel">
+		<i class="icon iconfont-dingdan"></i>
+		<p class="cs-nav-left-cen-t collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion"
+		   href="#collapseThree"
+		   aria-expanded="false" aria-controls="collapseThree">
+			<i class="icon iconfont-menu"></i> 订单管理
+			<i class="icon iconfont-down"></i>
+		</p>
+		<ul class="cs-nav-left-cen-b collapse" id="collapseThree" aria-labelledby="headingThree">
+			<li>代售订单</li>
+			<li>售中订单</li>
+			<li>已售订单</li>
+		</ul>
+	</div>
+	<div class="cs-nav-left-cen panel">
+		<i class="icon iconfont-xitong"></i>
+		<p class="cs-nav-left-cen-t collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion"
+		   href="#collapseFour"
+		   aria-expanded="false" aria-controls="collapseFour">
+			<i class="icon iconfont-menu"></i> 系统管理
+			<i class="icon iconfont-down"></i>
+		</p>
+		<ul class="cs-nav-left-cen-b collapse" id="collapseFour" aria-labelledby="headingFour">
+			<li>用户管理</li>
+			<li>角色管理</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="form-wrap">
+		<div class="title">商品基本信息</div>
+		<form class="form-horizontal" id="myForm" method="post">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品名称</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" name="name" class="form-control" placeholder="请输入商品名称">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品副标题</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" name="subtitle" class="form-control" placeholder="请输入商品名称">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品类型</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="type">
+						<option value="100">翡翠</option>
+						<option value="101">玉石</option>
+						<option value="102">陶瓷</option>
+						<option value="103">国画</option>
+						<option value="104">玻璃</option>
+						<option value="105">和田玉</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">所属仓</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="r_id">
+						<script type="text/html" id="store">
+							{{ each listRepository v i}}
+							<option value="{{ v.id }}">{{ v.name }}</option>
+							{{ /each }}
+						</script>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">商品原价</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="orig_price" placeholder="请输入商品销售价格">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">颜色</label>
+				<div class="col-sm-6 col-lg-6">
+					<select class="form-control" name="color">
+						<option value="红色">红色</option>
+						<option value="粉红">粉红</option>
+						<option value="翠绿">翠绿</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">尺寸</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="size" placeholder="请输入商品尺寸">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">库存</label>
+				<div class="col-sm-6 col-lg-6">
+					<input type="text" class="form-control" name="stock" placeholder="请输入商品库存">
+				</div>
+			</div>
+			<div class="form-group" style="padding-bottom:158px;">
+				<div class="col-sm-offset-2 col-sm-6 col-lg-6">
+					<input type="reset" class="btn btn-default pull-right zcg-btn" id="reset" value="重置">
+					<input type="submit" class="btn btn-default pull-right zcg-btn" id="save" value="保存">
+				
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+					aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">温馨提示</h4>
+			</div>
+			<div class="modal-body">
+				<p class="text-danger text-center">是否需要添加商品图片?</p>
+				<div class="zcg-btn">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-default" id="addImg">确定</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+<script src="../lib/jquery.validate.min.js"></script>
+<script src="../lib/template-web.js"></script>
+<script src="../js/common.js"></script>
+<script>
+	$(function () {
+		$('#myForm').validate({
+			rules: {
+				name: {
+					required: true,
+					maxlength: 50
+				},
+				subtitle: {
+					maxlength: 50
+				},
+				orig_price: {
+					required: true,
+					number: true
+				},
+				stock: {
+					required: true,
+					digits: true
+				}
+			},
+			messages: {
+				name: {
+					required: "*必须输入商品名称",
+					maxlength: "*最大输入50字符"
+				},
+				subtitle: {
+					maxlength: "*最大输入50字符"
+				},
+				orig_price: {
+					required: "*必须输入商品原价",
+					number: "*请输入数字",
+				},
+				stock: {
+					required: "*必须输入库存数量",
+					digits: "*请输入整数"
+				}
+			}
+		})
+		$.ajax({
+			url: storeUrl,
+			type: 'get',
+			dataType: 'json',
+			success: function (res) {
+				var html = template("store", res.result);
+				$("[name='r_id']").html(html);
+			},
+			error: function (err) {
+				console.log(err.message);
+			}
+		});
+		var productId = null;
+		$('#save').on('click', function (e) {
+			e.preventDefault();
+			var r = $('#myForm').valid();
+			if (r) {
+				var form = document.getElementById("myForm");
+				var formData = new FormData(form);
+				var name = formData.get('name');
+				var subtitle = formData.get('subtitle');
+				var type = formData.get('type');
+				var r_id = formData.get('r_id');
+				var orig_price = formData.get('orig_price');
+				var size = formData.get('size');
+				var stock = formData.get('stock');
+				var color = formData.get('color');
+				var data = [{
+					name: name,
+					subtitle: subtitle,
+					type: type,
+					r_id: r_id,
+					orig_price: orig_price - 0,
+					color: color,
+					size: size,
+					stock: stock,
+					sale_type: 100,
+				}];
+				$.ajax({
+					url: 'http://172.168.1.61:8080/ProductMaven/product/add_product',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						product_param: JSON.stringify(data)
+					},
+					success: function (res) {
+						if (res.status === '200') {
+							productId = res.result;
+						}
+					},
+					error: function (err) {
+						console.log(err)
+					}
+				})
+				$('#alert').modal('show');
+			} else {
+				return;
+			}
+		})
+		$('#addImg').on('click', function () {
+			window.location.href = '/product/product-image.html?product_id=' + productId;
+		})
+		$('#alert').on('hide.bs.modal', function () {
+			window.location.href = '/product/product.html';
+		})
+	});//end
+</script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加仓库</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/leftnav.css">
+    <link rel="stylesheet" href="../css/addstroe.css">
+</head>
+<body>
+
+
+<nav>
+    <!-- <div class="nav clearfix">
+        <div class="navOne">
+            仓库管理<i class="icon iconfont-cha"></i>
+        </div>
+        <div class="navTwo">
+            添加仓库<i class="icon iconfont-cha"></i>
+        </div>
+    </div> -->
+    <div class="admin">
+        <i class="icon iconfont-people"></i>
+        <span class="username">张三</span>
+        <i class="icon iconfont-shezhi shezhi"></i>
+        <div class="edit">
+            <ul class="edit-list">
+                <li>关于中藏宫</li>
+                <li>修改密码</li>
+                <li>退出</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="cs-nav-left" id="accordion">
+    <div class="cs-nav-left-top"></div>
+    <div class="cs-nav-left-cen panel">
+        <i class="icon iconfont-stroe"></i>
+        <p id="stroeUrl" class="cs-nav-left-cen-t collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion"
+           href="#collapseOne"
+           aria-expanded="false" aria-controls="collapseOne">
+            <i class="icon iconfont-menu"></i> 仓库管理
+            <i class="icon iconfont-down"></i>
+        </p>
+        <ul id="collapseOne" class="cs-nav-left-cen-b collapse" aria-labelledby="headingOne">
+            <li><a href="/store/addstore.html" style="color:#FFF;">添加仓库</a></li>
+        </ul>
+    </div>
+    <div class="cs-nav-left-cen panel">
+        <i class="icon iconfont-product"></i>
+        <p id="productUrl" class="cs-nav-left-cen-t collapsed" id="headingTwo" data-toggle="collapse"
+           data-parent="#accordion"
+           href="#collapseTwo"
+           aria-expanded="false" aria-controls="collapseTwo">
+            <i class="icon iconfont-menu"></i> 商品管理
+            <i class="icon iconfont-down"></i>
+        </p>
+        <ul class="cs-nav-left-cen-b collapse" id="collapseTwo" aria-labelledby="headingTwo">
+            <li><a href="/product/add-product.html" style="color:#FFF;">添加商品</a></li>
+            <li>添加套装</li>
+            <li>添加周期</li>
+        </ul>
+    </div>
+    <div class="cs-nav-left-cen panel">
+        <i class="icon iconfont-dingdan"></i>
+        <p class="cs-nav-left-cen-t collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion"
+           href="#collapseThree"
+           aria-expanded="false" aria-controls="collapseThree">
+            <i class="icon iconfont-menu"></i> 订单管理
+            <i class="icon iconfont-down"></i>
+        </p>
+        <ul class="cs-nav-left-cen-b collapse" id="collapseThree" aria-labelledby="headingThree">
+            <li>代售订单</li>
+            <li>售中订单</li>
+            <li>已售订单</li>
+        </ul>
+    </div>
+    <div class="cs-nav-left-cen panel">
+        <i class="icon iconfont-xitong"></i>
+        <p class="cs-nav-left-cen-t collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion"
+           href="#collapseFour"
+           aria-expanded="false" aria-controls="collapseFour">
+            <i class="icon iconfont-menu"></i> 系统管理
+            <i class="icon iconfont-down"></i>
+        </p>
+        <ul class="cs-nav-left-cen-b collapse" id="collapseFour" aria-labelledby="headingFour">
+            <li>用户管理</li>
+            <li>角色管理</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="title">
+        添加仓库
+    </div>
+    <div class="con">
+        <div class="con-t">
+            仓库名称
+            <input type="text" id="str_name">
+        </div>
+        <div class="cont-b">
+            备注
+            <textarea id="r_desc" placeholder="输入详细说明"></textarea>
+        </div>
+        <button class="btn">确定</button>
+    </div>
+</div>
+
+
+
+
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+
+<script>
+
+    $(function () {
+        $("#headingOne").removeClass("collapsed").attr("aria-expanded",true);
+        $("#collapseOne").addClass("in");
+        $(".btn").on("click",function () {
+            $.ajax({
+                url: "http://172.168.1.61:8080/ProductMaven/repository/save_repository",
+                dataType:'json',
+                type:'post',
+                data:{
+                    name:$("#str_name").val(),
+                    r_desc:$("#r_desc").val()
+                },
+                success: function (data) {
+                    console.log(data);
+                    location.href = "/store/addstore.html";
+//                    console.log(location.href);
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

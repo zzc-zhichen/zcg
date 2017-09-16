@@ -1,0 +1,59 @@
+.img-uploader {
+  position: relative;
+  margin-top: 12px;
+  /*上传按钮组*/
+  /*上传按钮*/
+  /*图片展示*/
+}
+.img-uploader .btns {
+  position: relative;
+  height: 142px;
+}
+.img-uploader .btns-uploader {
+  float: left;
+  width: 122px;
+  height: 122px;
+  margin-right: 10px;
+  border: dashed 1px #c6c6c6;
+}
+.img-uploader .btns-uploader span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 60px;
+  color: #999;
+  margin: 38px 38px;
+  cursor: pointer;
+}
+.img-uploader .uploadBtn {
+  position: absolute;
+  right: -80px;
+  bottom: -1px;
+  width: 60px;
+  height: 32px;
+  background-color: #fbb937;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 32px;
+  color: #fffefe;
+  cursor: pointer;
+}
+.img-uploader #uploader {
+  max-width: 540px;
+}
+.img-uploader #uploader .filelist {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+.img-uploader #uploader .filelist li {
+  margin: 0 10px 20px 0;
+  border: 1px solid #c6c6c6;
+}
+.img-uploader #uploader .filelist li img {
+  width: 120px;
+  height: 120px;
+}

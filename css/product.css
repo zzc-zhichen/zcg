@@ -1,0 +1,292 @@
+#headingTwo {
+  color: #40a8e8;
+}
+#headingTwo .iconfont-menu {
+  color: #40a8e8;
+}
+.content {
+  padding-left: 30px;
+  padding-top: 30px;
+  overflow: hidden;
+}
+.content .seach {
+  height: 100px;
+  background-color: white;
+  font-size: 16px;
+  padding-left: 22px;
+  padding-top: 34px;
+  margin-bottom: 20px;
+}
+.content .seach input {
+  height: 32px;
+  width: 240px;
+  margin-right: 100px;
+  margin-left: 8px;
+  border: 1px solid #f1f1f1;
+}
+.content .seach button {
+  width: 108px;
+  height: 32px;
+  border-radius: 5px;
+  background-color: #3da9e5;
+  border: none;
+  color: white;
+}
+.content .add a {
+  display: inline-block;
+  width: 108px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 15px;
+  background-color: #3da9e5;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.content .add a i {
+  margin-right: 5px;
+}
+.content .table-responsive .table {
+  min-width: 900px;
+  margin: 0;
+}
+.content .table-responsive .table .thead {
+  background-color: #e6e6e6;
+}
+.content .table-responsive .table li {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px;
+  border: 0px;
+  width: 8%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+}
+.content .table-responsive .table .tbody ul {
+  cursor: pointer;
+}
+.content .table-responsive .table .tbody ul:nth-child(odd) {
+  background: #f9f9f9;
+}
+.content .table-responsive .table .tbody ul:nth-child(even) {
+  background: #ffffff;
+}
+.content .table-responsive .table .tbody ul:hover {
+  background-color: #def2fe;
+}
+.content .table-responsive .table .tbody a {
+  display: inline-block;
+  margin-top: 7px;
+  height: 25px;
+  width: 25px;
+  margin-left: 10px;
+}
+.content .table-responsive .table .tbody a i {
+  font-size: 18px;
+}
+.content .table-responsive .table .tbody a .icon {
+  top: -5px;
+}
+.content .table-responsive .table .tbody a:first-child {
+  margin-left: 5px;
+}
+.content .pageContainer {
+  background-color: white;
+}
+.content .pageContainer .main {
+  width: 1200px;
+  height: 120px;
+  background-color: white;
+  padding-top: 40px;
+}
+.content .pageContainer .main .page {
+  margin: 0 auto;
+  width: 300px;
+}
+.content .pageContainer .main .page a {
+  float: left;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  margin-right: 16px;
+  border-radius: 4px;
+  background-color: #e1e1e2;
+  color: black;
+}
+.content .pageContainer .main .page a i {
+  color: #45a4e1;
+}
+.content .pageContainer .main .page a:hover,
+.content .pageContainer .main .page .current {
+  background-color: #45a4e1;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+.content .pageContainer .main .page a:hover i,
+.content .pageContainer .main .page .current i {
+  color: white;
+}
+.btn-t {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.btn-b {
+  border-right: 6px;
+}
+.table .td {
+  line-height: 40px;
+}
+@media screen and (max-width: 1490px) {
+  .content .seach input {
+    width: 170px;
+    margin-right: 6%;
+  }
+  .content .seach button {
+    width: 90px;
+  }
+  .content .pageContainer .main {
+    width: 100%;
+  }
+}
+.form-wrap {
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.form-wrap .title {
+	width: 100%;
+	height: 40px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background: #dff1ff;
+	line-height: 40px;
+	font-size: 16px;
+	color: #333;
+	padding-left: 10px;
+}
+
+.form-wrap label {
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.form-wrap .form-group {
+	margin-top: 30px;
+}
+
+.form-wrap .form-group .zcg-btn {
+	width: 108px;
+	height: 32px;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #fffefe;
+	background-color: rgba(64, 168, 232, 1);
+	border: 0;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.form-wrap .form-group #reset {
+	background-color: rgba(210, 210, 210, 1);
+}
+
+/*弹出框样式高度*/
+#alert {
+	-webkit-transform: translate(0, 144px);
+	-ms-transform: translate(0, 144px);
+	-o-transform: translate(0, 144px);
+	transform: translate(0, 144px);
+}
+
+#alert .modal-header {
+	padding: 12px 20px;
+	height: 55px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background-color: rgba(32, 51, 93, 1);
+}
+
+#alert .modal-header h4 {
+	font-size: 24px;
+	color: #fff;
+}
+
+#alert .modal-header .close {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	font-size: 38px;
+	line-height: 30px;
+	border-radius: 50%;
+	opacity: 1;
+	background: #FFF;
+	color: rgba(32, 51, 93, 1);
+	margin-top: 2px;
+	outline: none;
+	
+}
+
+#alert .modal-header .close span {
+	position: absolute;
+	top: -3px;
+	left: 1px;
+}
+
+#alert .modal-body {
+	width: 600px;
+	height: 226px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#alert .modal-body p {
+	display: block;
+	width: 100%;
+	margin-top: -60px;
+	font-size: 18px;
+	color: #666;
+}
+
+#alert .modal-body .zcg-btn {
+	position: absolute;
+	right: 1px;
+	bottom: 38px;
+}
+
+#alert .modal-body .zcg-btn button {
+	width: 80px;
+	height: 32px;
+	border: 0px;
+	padding: 0px;
+	color: #fffefe;
+	font-size: 16px;
+	outline: none;
+	background-color: rgba(251, 185, 55, 1);
+	border-radius: 4px 4px 4px 4px;
+}
+
+#alert .modal-body #addImg {
+	margin: 0px 20px;
+	background-color: rgba(64, 168, 232, 1);
+}
+
+#myForm label.error {
+	position: absolute;
+	top: 32px;
+	left: 18px;
+	font-size: 10px;
+	color: red;
+}

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>添加商品图片</title>
+	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/amaze/amazeui.min.css">
+	<link rel="stylesheet" href="../css/amaze/font-awesome.css">
+	<link rel="stylesheet" href="../css/webuploader/webuploader.css">
+	<link rel="stylesheet" href="../css/cropper/cropper.min.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/iconfont.css">
+	<link rel="stylesheet" href="../css/leftnav.css">
+	<link rel="stylesheet" href="../css/product.css">
+	<link rel="stylesheet" href="../css/image.css">
+</head>
+
+<body>
+	<nav>
+    <div class="nav">
+        <!--商品管理<i class="icon iconfont-cha"></i>-->
+    </div>
+    <div class="admin">
+        <i class="icon iconfont-people"></i>
+        <span class="username">张三</span>
+        <i class="icon iconfont-shezhi shezhi"></i>
+        <div class="edit">
+            <ul class="edit-list">
+                <li>关于中藏宫</li>
+                <li>修改密码</li>
+                <li>退出</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+	<div class="cs-nav-left" id="accordion">
+		<div class="cs-nav-left-top"></div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-stroe"></i>
+			<p id="stroeUrl" class="cs-nav-left-cen-t collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseOne"
+			   aria-expanded="false" aria-controls="collapseOne">
+				<i class="icon iconfont-menu"></i> 仓库管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul id="collapseOne" class="cs-nav-left-cen-b collapse" aria-labelledby="headingOne">
+				<li><a href="/store/addstore.html" style="color:#FFF;">添加仓库</a></li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-product"></i>
+			<p id="productUrl" class="cs-nav-left-cen-t collapsed" id="headingTwo" data-toggle="collapse"
+			   data-parent="#accordion"
+			   href="#collapseTwo"
+			   aria-expanded="false" aria-controls="collapseTwo">
+				<i class="icon iconfont-menu"></i> 商品管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseTwo" aria-labelledby="headingTwo">
+				<li><a href="/product/add-product.html" style="color:#FFF;">添加商品</a></li>
+				<li>添加套装</li>
+				<li>添加周期</li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-dingdan"></i>
+			<p class="cs-nav-left-cen-t collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseThree"
+			   aria-expanded="false" aria-controls="collapseThree">
+				<i class="icon iconfont-menu"></i> 订单管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseThree" aria-labelledby="headingThree">
+				<li>代售订单</li>
+				<li>售中订单</li>
+				<li>已售订单</li>
+			</ul>
+		</div>
+		<div class="cs-nav-left-cen panel">
+			<i class="icon iconfont-xitong"></i>
+			<p class="cs-nav-left-cen-t collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion"
+			   href="#collapseFour"
+			   aria-expanded="false" aria-controls="collapseFour">
+				<i class="icon iconfont-menu"></i> 系统管理
+				<i class="icon iconfont-down"></i>
+			</p>
+			<ul class="cs-nav-left-cen-b collapse" id="collapseFour" aria-labelledby="headingFour">
+				<li>用户管理</li>
+				<li>角色管理</li>
+			</ul>
+		</div>
+	</div>
+
+<div class="content">
+	<div class="image-wrap">
+		<div class="title">商品图片</div>
+		<div id="add-image">
+			
+			<!-- 图片内容区域 -->
+			<div class="page-container">
+				<div id="uploader" class="wu-example">
+					<div class="queueList">
+						<div id="dndArea" class="placeholder">
+							<div id="filePicker" class="webuploader-container">
+							</div>
+							<p>或将图片拖到这里</p>
+						</div>
+						<!-- 创建过来的ul跟div dndArea同级  -->
+					</div>
+					<div class="statusBar" style="display:none">
+						<!-- 进度条 -->
+						<div class="progress">
+							<span class="text">0%</span>
+							<span class="percentage" style="width: 0%;"></span>
+						</div>
+						<!-- 上传图片信息  -->
+						<div class="info">共0张(0B)，已上传0张</div>
+						<!-- 第二个上传按钮  -->
+						<div class="btns">
+							<div id="filePicker2" class="webuploader-container">
+								<div class="webuploader-pick">继续添加</div>
+							</div>
+							<div class="uploadBtn state-pedding">开始上传</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 图片编辑模态框 -->
+<div class="am-popup zn-photodiy-popup" tabindex="-1" id="zn-photodiy-edit">
+	<div class="am-popup-inner">
+		<div class="am-popup-hd">
+			<h4 class="am-popup-title">照片编辑</h4>
+			<span data-am-modal-close class="am-close" data-am-modal-cancel>&times;</span>
+		</div>
+		<div class="am-popup-bd">
+			<div class="am-g">
+				<div class="am-u-sm-12 am-u-md-7 am-u-lg-7 ">
+					<div class="img-container">
+						<img src="" id="image_cropper" alt="Picture">
+					</div>
+					<button class="am-btn am-btn-default zn-photodiy-editma" data-method="reset" type="button" title="Reset">
+						<span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;reset&quot;)">还原</span>
+					</button>
+				</div>
+				<div class="am-u-sm-12 am-u-md-5 am-u-lg-5">
+					
+					<p>
+						<button class="zn-photodiy-editbtn" data-method="rotate" data-option="-90" type="button">
+<span class="glyphicon glyphicon-repeat">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="rotate" data-option="90" type="button"
+						        title="Rotate Right">
+<span class="glyphicon glyphicon-repeat">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="zoom" data-option="-0.1" type="button"
+						        title="Zoom Out">
+<span class="glyphicon glyphicon-zoom-out" data-toggle="tooltip"
+      title="$().cropper(&quot;zoom&quot;, -0.1)">
+ </span>
+							</span>
+						</button>
+						<button class="zn-photodiy-editbtn" data-method="zoom" data-option="0.1" type="button"
+						        title="Zoom In">
+<span class="glyphicon glyphicon-zoom-in" data-toggle="tooltip"
+      title="$().cropper(&quot;zoom&quot;, 0.1)">
+ </span>
+							</span>
+						</button>
+					</p>
+					<p class="text"><span>左旋转</span><span>右旋转</span><span>缩小</span><span>放大</span></p>
+					<p class="am-pagination-right">
+						<button type="button" class="am-btn am-btn-warning am-radius" data-am-modal-close data-am-modal-cancel
+						        id="cancel">取消
+						</button>
+						<button type="button" class="am-btn am-btn-danger am-radius" data-am-modal-close data-am-modal-confirm
+						        id="confirm">确定
+						</button>
+					</p>
+				</div>
+			</div>
+			<div class="zn-photodiy-edittext"><span class="glyphicon glyphicon-warning-sign"></span>请点击照片拖动照片选择冲印范围，虚线框外的图像将被裁减删除
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+	<div class="am-modal-dialog">
+		<div class="am-modal-hd" style="font-size: 16px; padding-bottom: 10px;">系统提示</div>
+		<div class="am-modal-bd " style="font-size: 20px;">
+			是否继续添加商品?
+		</div>
+		<div class="am-modal-footer">
+			<span class="am-modal-btn" id="imgCancel">取消</span>
+			<span class="am-modal-btn" id="imgConfirm">确定</span>
+		</div>
+	</div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+	<div class="am-modal-dialog">
+		<div class="am-modal-hd" style="font-size: 16px; padding-bottom: 10px;">系统提示</div>
+		<div class="am-modal-bd" style="font-size: 20px;">
+			最多上传4张图片!
+		</div>
+		<div class="am-modal-footer">
+			<span class="am-modal-btn">确定</span>
+		</div>
+	</div>
+</div>
+
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/bootstrap.min.js"></script>
+<script src="../lib/amaze/amazeui.min.js"></script>
+<script src="../lib/amaze/amazeui.dialog.min.js"></script>
+<script src="../lib/webuploader/webuploader.min.js"></script>
+<script src="../lib/cropper/cropper.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+	window.webuploader = {
+		config: {
+			thumbWidth: 150, //缩略图宽度，可省略，默认为110
+			thumbHeight: 150, //缩略图高度，可省略，默认为110
+			wrapId: 'uploader', //必填
+		}
+	}
+	// 配置信息对象
+	var config = {
+		// 图片上传限制
+		fileNumLimit: 4,
+		// 单张图片的限制 10MB
+		fileSingleSizeLimit: 10 * 1024 * 1024,
+		
+		// TODO
+		canvas: {
+			"sWidth": 400,
+			"sHeight": 413,
+			"isMerge": true,
+			"merge": {
+				"tWidth": 900,
+				"tHeight": 1300,
+				"offsets": [{
+					"x": 0,
+					"y": 0
+				},
+					{
+						"x": 400,
+						"y": 0
+					},
+					{
+						"x": 0,
+						"y": 420
+					},
+					{
+						"x": 400,
+						"y": 420
+					},
+					{
+						"x": 0,
+						"y": 840
+					},
+					{
+						"x": 400,
+						"y": 840
+					}
+				]
+			}
+		},
+		prodId: 8
+	};
+</script>
+<script src="../lib/extend-webuploader.js"></script>
+
+</body>
+
+</html>
