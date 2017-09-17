@@ -1,5 +1,9 @@
 $(function () {
-	$('#accordion .link').on('click', function () {
+	// 列表展开显示 根据文件路径
+	var pathName = window.location.pathname;
+	pathName = pathName.split('/')[1];
+	var navList = $('#accordion .link');
+	navList.on('click', function () {
 		var span = $(this).children()[1];
 		$(span).toggleClass('icon-xia');
 		$(span).toggleClass('icon-shang');
@@ -8,6 +12,33 @@ $(function () {
 	$('#userInfo').on('click', function () {
 		$('.user-info').toggle();
 	})
+	switch (pathName) {
+		case "user":
+			openNav(0)
+			break;
+		case "store":
+			openNav(1)
+			break;
+		case "product":
+			openNav(2)
+			break;
+		case "sell":
+			openNav(3)
+			break;
+		case "order":
+			openNav(4)
+			break;
+	}
+
+	function openNav(elementIndex) {
+		var $span = $(navList[elementIndex]).children()[1];
+		$($span).toggleClass('icon-xia');
+		$($span).toggleClass('icon-shang');
+		$(navList[elementIndex]).next().attr('style', 'display:block;')
+	}
+
+
+
 
 
 
