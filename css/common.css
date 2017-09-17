@@ -143,7 +143,6 @@ nav .admin .edit:after {
   background-color: #20335d;
   box-shadow: 3px 0 5px #f7f7f7;
   overflow: auto;
-  scrollbar-arrow-color: pink;
 }
 .left-nav .logo-title img {
   display: inline-block;
@@ -170,10 +169,10 @@ nav .admin .edit:after {
 .accordion li .link span {
   color: #fff;
 }
-.accordion li .link span:nth-child(1) {
+.accordion li .link span:nth-child(2) {
   margin-right: 20px;
 }
-.accordion li .link span:nth-child(2) {
+.accordion li .link span:nth-child(4) {
   margin-left: 80px;
 }
 .accordion li .link .angle {
@@ -233,4 +232,74 @@ span.glyphicon.glyphicon-menu-hamburger {
 ol,
 ul {
   padding-left: 0;
+}
+/* 屏幕小于768的时候改变左侧导航样式 */
+body {
+  background-color: #f0f5f6;
+  padding-left: 260px;
+}
+#accordion li .link i {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  body {
+    padding-left: 70px;
+    height: 100%;
+    width: 100%;
+  }
+  .left-nav {
+    width: 80px;
+    height: 100%;
+    background-color: #1f345c;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    color: white;
+    font-size: 16px;
+    overflow: visible;
+  }
+  .left-nav .logo-title {
+    margin: 10px 10px 10px 10px;
+    width: 70px;
+    height: 60px;
+    background: url('../images/slogo.png') no-repeat;
+  }
+  .left-nav .logo-title img {
+    display: none;
+  }
+  #accordion li {
+    position: relative;
+  }
+  #accordion li .link {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    margin-left: 23px;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #FFF;
+  }
+  #accordion li .link i {
+    display: block;
+  }
+  #accordion li .link strong,
+  #accordion li .link span {
+    display: none;
+  }
+  #accordion li .submenu {
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    overflow: hidden;
+    display: block;
+    width: 0px;
+    opacity: 0;
+  }
+  #accordion li:hover .submenu {
+    width: 175px;
+    opacity: 1;
+    display: block;
+    transition: all 0.5s ease;
+  }
 }

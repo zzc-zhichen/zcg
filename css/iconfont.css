@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'zcg';
-  src:  url('../fonts/zcg.eot?cyoemm');
-  src:  url('../fonts/zcg.eot?cyoemm#iefix') format('embedded-opentype'),
-    url('../fonts/zcg.ttf?cyoemm') format('truetype'),
-    url('../fonts/zcg.woff?cyoemm') format('woff'),
-    url('../fonts/zcg.svg?cyoemm#zcg') format('svg');
+  src:  url('../fonts/zcg.eot?3xnml7');
+  src:  url('../fonts/zcg.eot?3xnml7#iefix') format('embedded-opentype'),
+    url('../fonts/zcg.ttf?3xnml7') format('truetype'),
+    url('../fonts/zcg.woff?3xnml7') format('woff'),
+    url('../fonts/zcg.svg?3xnml7#zcg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -53,6 +53,9 @@
 }
 .icon-arrow-left:before {
   content: "\e605";
+}
+.icon-xiaoshou:before {
+  content: "\e613";
 }
 .icon-shang:before {
   content: "\e63d";

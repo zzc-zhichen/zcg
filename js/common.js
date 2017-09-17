@@ -4,7 +4,8 @@ $(function () {
 	pathName = pathName.split('/')[1];
 	var navList = $('#accordion .link');
 	navList.on('click', function () {
-		var span = $(this).children()[1];
+		var span = $(this).children()[3];
+		console.log(span)
 		$(span).toggleClass('icon-xia');
 		$(span).toggleClass('icon-shang');
 		$(this).siblings().stop(true, false).slideToggle();
@@ -29,26 +30,39 @@ $(function () {
 			openNav(4)
 			break;
 	}
-
+	
 	function openNav(elementIndex) {
-		var $span = $(navList[elementIndex]).children()[1];
+		var $span = $(navList[elementIndex]).children()[3];
 		$($span).toggleClass('icon-xia');
 		$($span).toggleClass('icon-shang');
 		$(navList[elementIndex]).next().attr('style', 'display:block;')
 	}
-
-
-
-
-
-
+	//加载页面时执行一次
+	changeMargin();
+	//监听浏览器宽度的改变
+	window.onresize = function () {
+		changeMargin();
+	};
+	function changeMargin() {
+		//获取网页可见区域宽度
+		var docWidth = document.body.clientWidth;
+		if (docWidth <= 768) {
+			$('.submenu').each(function (i, v) {
+				var el = $(v).attr('style');
+				if (el=='display: none;'){
+					$(v).attr('style','display:block');
+				}
+			})
+		}
+	}
+	
 	$(".cs-nav-left-cen").on("click", function () {
 		$(this).find(".iconfont-down").addClass("rote");
 	});
 	$(".shezhi").on("click", function () {
 		$(".edit").toggle();
 	});
-
+	
 });
 
 var common = {};
@@ -95,7 +109,7 @@ common.lightBox = {
 		}
 		var loadingHtml = "<div id='loading' style='width: 100%;height: 100%;position:fixed;top:0;z-index:999;background-color: black;opacity:0.5;'><img src='../images/ajaxLoading.gif' style='margin: 20% 48%'/><div>";
 		$(document.body).append(loadingHtml);
-
+		
 	},
 	hideLoading: function () {
 		if ($("#loading").length > 0) {
