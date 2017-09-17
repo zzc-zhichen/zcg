@@ -1,25 +1,23 @@
 $(function () {
+	$('#accordion .link').on('click', function () {
+		var span = $(this).children()[1];
+		$(span).toggleClass('icon-xia');
+		$(span).toggleClass('icon-shang');
+		$(this).siblings().stop(true, false).slideToggle();
+	})
+	$('#userInfo').on('click', function () {
+		$('.user-info').toggle();
+	})
+
+
+
 	$(".cs-nav-left-cen").on("click", function () {
 		$(this).find(".iconfont-down").addClass("rote");
 	});
 	$(".shezhi").on("click", function () {
 		$(".edit").toggle();
 	});
-	
-	$('#stroeUrl').on('click', function () {
-		if (location.pathname == '/store/store.html') {
-			return;
-		} else {
-			window.location.href = '/store/store.html'
-		}
-	})
-	$('#productUrl').on('click', function () {
-		if (location.pathname == '/product/product.html') {
-			return;
-		} else {
-			window.location.href = '/product/product.html'
-		}
-	})
+
 });
 
 var common = {};
@@ -32,7 +30,8 @@ common.lightBox = {
 		if (this.el.length > 0) {
 			this.el.remove();
 		}
-		var a = [], $this = this;
+		var a = [],
+			$this = this;
 		a.push('<div class="modal fade" id="showModalMessageBox">');
 		a.push('    <div class="modal-dialog">');
 		a.push('        <div class="modal-content">');
@@ -65,7 +64,7 @@ common.lightBox = {
 		}
 		var loadingHtml = "<div id='loading' style='width: 100%;height: 100%;position:fixed;top:0;z-index:999;background-color: black;opacity:0.5;'><img src='../images/ajaxLoading.gif' style='margin: 20% 48%'/><div>";
 		$(document.body).append(loadingHtml);
-		
+
 	},
 	hideLoading: function () {
 		if ($("#loading").length > 0) {
@@ -106,10 +105,9 @@ function GetQueryString(name) {
 
 function getUrlParam(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-	var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	var r = window.location.search.substr(1).match(reg); //匹配目标参数
 	if (r != null) return unescape(r[2]);
 	return null; //返回参数值
 }
 
 var storeUrl = 'http://172.168.1.61:8080/ProductMaven/repository/get_repository_list';
-

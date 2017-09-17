@@ -2,6 +2,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "Microsoft YaHei";
 }
 
 body {
@@ -33,27 +34,7 @@ a:hover {
 	text-decoration: none;
 }
 
-
-//清除浮动
-.clearfix:before,
-.clearfix:after {
-	content: "";
-	display: table;
-}
-.clearfix:after {
-	clear: both;
-}
-.clearfix {
-	*zoom: 1;
-}
-* {
-	font-family: "微软雅黑,宋体";
-}
-html,body {
-	min-width: 900px;
-}
-
-//头部
+// 头部
 
 nav {
 	width: 100%;
@@ -68,17 +49,30 @@ nav {
 		height: 60px;
 		line-height: 80px;
 		i {
+
 			font-size: 10px;
 			margin-left: 4px;
 		}
 	}
 	.admin {
 		float: right;
-		padding-right: 150px;
+		padding-right: 90px;
 		height: 60px;
 		position: relative;
 		i {
-			color: rgb(160, 218, 243);
+			display:inline-block;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			font-size: 30px;
+			margin-top: 13px;
+			color: rgba(64, 168, 232, 1);
+			vertical-align: middle;
+		}
+		.icon-shezhi.shezhi {
+			font-size: 20px;
+			cursor: pointer;
 		}
 		.iconfont-people {
 			font-size: 30px;
@@ -92,20 +86,14 @@ nav {
 			line-height: 60px;
 			vertical-align: top;
 		}
-		.iconfont-shezhi {
-			font-size: 18px;
-			line-height: 60px;
-			top: -5px;
-			cursor: pointer;
-		}
+		
 		.edit {
 			display: none;
 			position: absolute;
 			top: 48px;
-			right: 109px;
+			right: 41px;
 			width: 78px;
 			height: 62px;
-			//padding:8px;
 			background-color: #FFFFFF;
 			border: rgb(160, 218, 243) solid 1px;
 			border-radius: 3px;
@@ -129,7 +117,7 @@ nav {
 			height: 0px;
 			position: absolute;
 			top: -16px;;
-			right: 41px;
+			right: 55px;
 			padding: 0;
 			border-bottom: 8px solid #FFFFFF;
 			border-top: 8px solid transparent;
@@ -145,7 +133,7 @@ nav {
 			height: 0px;
 			position: absolute;
 			top: -18px;;
-			right: 40px;
+			right: 54px;
 			padding: 0;
 			border-bottom: 9px solid rgb(160, 218, 243);
 			border-top: 9px solid transparent;
@@ -156,4 +144,125 @@ nav {
 			z-index: 10
 		}
 	}
+}
+
+// 左侧导航栏
+.left-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 260px;
+	height: 100%;
+	background-color: #20335d;
+	box-shadow: 3px 0 5px #f7f7f7;
+	overflow: auto;
+}
+
+
+.left-nav .logo-title img {
+	display: inline-block;
+	padding: 16px 0 0 20px;
+	vertical-align: middle;
+}
+
+.accordion {
+	margin-top: 40px;
+}
+
+.accordion ul {
+	padding-left: 0;
+}
+
+.accordion li {
+	width: 100%;
+}
+
+.accordion li .link {
+	height: 44px;
+	line-height: 44px;
+	cursor: pointer;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #FFF;
+}
+
+
+.accordion li .link span {
+	color: #fff;
+}
+
+.accordion li .link span:nth-child(1) {
+	margin-right: 20px;
+}
+
+.accordion li .link span:nth-child(2) {
+	margin-left: 80px;
+}
+
+.accordion li .link .angle {
+	float: right;
+	margin-right: 30px;
+}
+
+#accordion .link:hover .icon-tubiao11{
+color: #3fa8e9;
+}
+#accordion .link:hover {
+color: #3fa8e9;
+}
+/**
+ * Submenu
+ -----------------------------*/
+.submenu {
+	display: none;
+	background: #1a294a;
+	font-size: 16px;
+}
+
+.submenu li {
+	background: #1a294a;
+	border-right: 6px solid #3fa8e9;
+}
+
+.submenu li a {
+	display: block;
+	text-decoration: none;
+	color: #FFF;
+	padding: 12px;
+	padding-left: 60px;
+	-webkit-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+
+.submenu li:hover a {
+	color: #3fa8e9;
+}
+
+span.glyphicon.glyphicon-menu-hamburger {
+	width: 17px;
+	height: 17px;
+	color: #a94118;
+	display: inline-block;
+}
+
+#in .submenu li a {
+	display: block;
+	text-decoration: none;
+	color: #d9d9d9;
+	padding: 12px;
+	padding-left: 15px;
+	-webkit-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+
+#editor {
+	background: #FFF;
+}
+
+ol,
+ul {
+	padding-left: 0;
 }

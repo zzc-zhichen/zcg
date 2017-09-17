@@ -38,63 +38,70 @@
         </div>
     </div>
 </nav>
-	<div class="cs-nav-left" id="accordion">
-		<div class="cs-nav-left-top"></div>
-		<div class="cs-nav-left-cen panel">
-			<i class="icon iconfont-stroe"></i>
-			<p id="stroeUrl" class="cs-nav-left-cen-t collapsed" id="headingOne" data-toggle="collapse" data-parent="#accordion"
-			   href="#collapseOne"
-			   aria-expanded="false" aria-controls="collapseOne">
-				<i class="icon iconfont-menu"></i> 仓库管理
-				<i class="icon iconfont-down"></i>
-			</p>
-			<ul id="collapseOne" class="cs-nav-left-cen-b collapse" aria-labelledby="headingOne">
-				<li><a href="/store/addstore.html" style="color:#FFF;">添加仓库</a></li>
-			</ul>
-		</div>
-		<div class="cs-nav-left-cen panel">
-			<i class="icon iconfont-product"></i>
-			<p id="productUrl" class="cs-nav-left-cen-t collapsed" id="headingTwo" data-toggle="collapse"
-			   data-parent="#accordion"
-			   href="#collapseTwo"
-			   aria-expanded="false" aria-controls="collapseTwo">
-				<i class="icon iconfont-menu"></i> 商品管理
-				<i class="icon iconfont-down"></i>
-			</p>
-			<ul class="cs-nav-left-cen-b collapse" id="collapseTwo" aria-labelledby="headingTwo">
-				<li><a href="/product/add-product.html" style="color:#FFF;">添加商品</a></li>
-				<li>添加套装</li>
-				<li>添加周期</li>
-			</ul>
-		</div>
-		<div class="cs-nav-left-cen panel">
-			<i class="icon iconfont-dingdan"></i>
-			<p class="cs-nav-left-cen-t collapsed" id="headingThree" data-toggle="collapse" data-parent="#accordion"
-			   href="#collapseThree"
-			   aria-expanded="false" aria-controls="collapseThree">
-				<i class="icon iconfont-menu"></i> 订单管理
-				<i class="icon iconfont-down"></i>
-			</p>
-			<ul class="cs-nav-left-cen-b collapse" id="collapseThree" aria-labelledby="headingThree">
-				<li>代售订单</li>
-				<li>售中订单</li>
-				<li>已售订单</li>
-			</ul>
-		</div>
-		<div class="cs-nav-left-cen panel">
-			<i class="icon iconfont-xitong"></i>
-			<p class="cs-nav-left-cen-t collapsed" id="headingFour" data-toggle="collapse" data-parent="#accordion"
-			   href="#collapseFour"
-			   aria-expanded="false" aria-controls="collapseFour">
-				<i class="icon iconfont-menu"></i> 系统管理
-				<i class="icon iconfont-down"></i>
-			</p>
-			<ul class="cs-nav-left-cen-b collapse" id="collapseFour" aria-labelledby="headingFour">
-				<li>用户管理</li>
-				<li>角色管理</li>
-			</ul>
-		</div>
+<!-- 左侧导航 -->
+<div class="left-nav" id="nav">
+	<div class="logo-title">
+		<img class="radius-circle rotate-hover" alt="logo" src="../images/logo.png">
 	</div>
+	<ul id="accordion" class="accordion">
+		<li>
+			<div class="link">
+				<span class="icon-tubiao11"></span>
+				用户管理
+				<span class="icon-xia"></span>
+			</div>
+			<ul class="submenu">
+				<li><a href="javascript:;">查看</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link">
+				<span class="icon-tubiao11"></span>
+				仓库管理
+				<span class="icon-xia"></span>
+			</div>
+			<ul class="submenu">
+				<li><a href="/store/store.html">仓库列表</a></li>
+				<li><a href="/store/addstore.html">添加仓库</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link">
+				<span class="icon-tubiao11"></span>
+				商品管理
+				<span class="icon-xia"></span>
+			</div>
+			<ul class="submenu">
+				<li><a href="/product/product.html">所有商品</a></li>
+				<li><a href="/product/add-product.html">添加单品</a></li>
+				<li><a href="javascript:;">添加套装</a></li>
+				<li><a href="javascript:;">添加周期商品</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link">
+				<span class="icon-tubiao11"></span>
+				销售管理
+				<span class="icon-xia"></span>
+			</div>
+			<ul class="submenu">
+				<li><a href="javascript:;">待售订单</a></li>
+				<li><a href="javascript:;">售中订单</a></li>
+				<li><a href="javascript:;">已售订单</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link">
+				<span class="icon-tubiao11"></span>
+				订单管理
+				<span class="icon-xia"></span>
+			</div>
+			<ul class="submenu">
+				<li><a href="javascript:;">订单详情</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
 
 <div class="content">
 	<div class="form-wrap">
